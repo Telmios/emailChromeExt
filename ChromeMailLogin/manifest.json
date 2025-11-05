@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Auto Login",
+  "version": "1.0.0",
+  "description": "Automate Gmail login with DOM manipulation",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://accounts.google.com/*",
+    "https://mail.google.com/*",
+    "https://www.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://accounts.google.com/*",
+        "https://mail.google.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
